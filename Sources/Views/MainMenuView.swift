@@ -98,7 +98,7 @@ public struct MainMenuView: View {
                             CartoonPizzaThumbnail(recipeId: "R-02", size: 125)
                         }
                         
-                        Text("20 MÓN CÔNG THỨC 🌟")
+                        Text("20 MASTER RECIPES 🌟")
                             .font(.system(size: 12, weight: .black))
                             .foregroundColor(.creamDoughWhite)
                             .padding(.horizontal, 14)
@@ -128,14 +128,14 @@ public struct MainMenuView: View {
                                     Image(systemName: "play.fill")
                                         .font(.system(size: 54, weight: .black))
                                         .foregroundColor(.creamDoughWhite)
-                                    Text("CHƠI NGAY!")
+                                    Text("PLAY NOW!")
                                         .font(.system(size: 13, weight: .black))
                                         .foregroundColor(.creamDoughWhite)
                                 }
                             }
                         }
                         
-                        Text("Chạm vào để bắt đầu làm pizza!")
+                        Text("Tap to start baking pizza!")
                             .font(.system(size: 13, weight: .bold))
                             .foregroundColor(.darkCharcoal)
                     }

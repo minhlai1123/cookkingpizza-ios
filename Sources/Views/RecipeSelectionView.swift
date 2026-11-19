@@ -66,7 +66,7 @@ public struct RecipeSelectionView: View {
                         
                         // Title Banner
                         HStack(spacing: 8) {
-                            Text("🍕 CHỌN MÓN PIZZA CỦA BÉ — 20 MÓN ĐẶC SẮC 🍕")
+                            Text("🍕 CHOOSE YOUR PIZZA — 20 MASTER RECIPES 🍕")
                                 .font(.system(size: 17, weight: .black))
                                 .foregroundColor(.creamDoughWhite)
                         }
@@ -113,7 +113,7 @@ public struct RecipeSelectionView: View {
                                 }) {
                                     HStack(spacing: 4) {
                                         Text(cat.icon)
-                                        Text(cat.labelVi)
+                                        Text(cat.label)
                                             .font(.system(size: 13, weight: isSelected ? .bold : .medium))
                                     }
                                     .foregroundColor(isSelected ? .creamDoughWhite : .darkCharcoal)
@@ -148,7 +148,7 @@ public struct RecipeSelectionView: View {
                     
                     // BOTTOM BAR: CREATIVE MODE SHORTCUT
                     HStack {
-                        Text("💡 Bé hãy chọn một chiếc pizza yêu thích để bắt đầu nấu nhé!")
+                        Text("💡 Pick your favorite pizza recipe to start cooking!")
                             .font(.system(size: 12, weight: .bold))
                             .foregroundColor(.darkCharcoal)
                             .padding(.horizontal, 14)
@@ -162,7 +162,7 @@ public struct RecipeSelectionView: View {
                             SoundEffects.shared.playPop()
                             onCreativeModeSelected()
                         }) {
-                            Text("🎨 CHẾ ĐỘ SÁNG TẠO TỰ DO")
+                            Text("🎨 CREATIVE FREE PLAY")
                                 .font(.system(size: 13, weight: .black))
                                 .foregroundColor(.creamDoughWhite)
                                 .padding(.horizontal, 18)
@@ -204,7 +204,7 @@ private struct RecipeCardView: View {
                 Spacer()
                 
                 if recipe.isNoBake {
-                    Text("🍓 KHÔNG NƯỚNG")
+                    Text("🍓 NO-BAKE")
                         .font(.system(size: 10, weight: .bold))
                         .foregroundColor(.white)
                         .padding(.horizontal, 6)
@@ -224,18 +224,14 @@ private struct RecipeCardView: View {
             
             // Name
             VStack(spacing: 1) {
-                Text(info.nameVi)
+                Text(info.nameEn)
                     .font(.system(size: 14, weight: .black))
                     .foregroundColor(.darkCharcoal)
-                    .lineLimit(1)
-                Text(info.nameEn)
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.crustBrownDark.opacity(0.7))
                     .lineLimit(1)
             }
             
             // Description
-            Text(info.descriptionVi)
+            Text(info.descriptionEn)
                 .font(.system(size: 10))
                 .foregroundColor(.darkCharcoal.opacity(0.75))
                 .multilineTextAlignment(.center)
@@ -251,7 +247,7 @@ private struct RecipeCardView: View {
             
             // Cook Button
             Button(action: onSelect) {
-                Text("NẤU NGAY! 🍕")
+                Text("COOK NOW! 🍕")
                     .font(.system(size: 13, weight: .black))
                     .foregroundColor(.creamDoughWhite)
                     .frame(maxWidth: .infinity)

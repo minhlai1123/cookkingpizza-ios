@@ -227,7 +227,7 @@ public struct KitchenView: View {
                     }
                 }
             }) {
-                Text("🔥 BẬT LÒ NƯỚNG! 🔥")
+                Text("🔥 START OVEN! 🔥")
                     .font(.system(size: 13, weight: .black))
                     .foregroundColor(.white)
                     .padding(.horizontal, 20)
@@ -247,13 +247,13 @@ public struct KitchenView: View {
                     .overlay(RoundedRectangle(cornerRadius: 24).stroke(Color(hex: 0xD84315), lineWidth: 6))
                 
                 VStack(spacing: 8) {
-                    Text("🔥 ĐANG NƯỚNG BÁNH... 🔥")
+                    Text("🔥 BAKING PIZZA... 🔥")
                         .font(.system(size: 13, weight: .black))
                         .foregroundColor(Color(hex: 0xFFFFB300))
                     
                     if state.difficultyTier == 3 {
                         // Hard mode heat needle
-                        Text("Dừng kim ở vạch VÀNG HOÀN HẢO! ⭐")
+                        Text("Stop needle in the PERFECT GOLD zone! ⭐")
                             .font(.system(size: 10, weight: .bold))
                             .foregroundColor(.white)
                         
@@ -273,7 +273,7 @@ public struct KitchenView: View {
                             isBakingActive = false
                             viewModel.bakePizzaInOven()
                         }) {
-                            Text("🔥 LẤY BÁNH RA NGAY! 🔥")
+                            Text("🔥 TAKE PIZZA OUT NOW! 🔥")
                                 .font(.system(size: 11, weight: .black))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 14)
@@ -451,12 +451,12 @@ public struct KitchenView: View {
         let info = state.currentRecipe.map { RecipeMetadataRegistry.getInfo(for: $0.recipeId) }
         let badgeStr: String = {
             switch state.difficultyTier {
-            case 1: return "⭐ DỄ"
-            case 2: return "⭐⭐ VỪA"
-            default: return "⭐⭐⭐ THỬ THÁCH"
+            case 1: return "⭐ EASY"
+            case 2: return "⭐⭐ MEDIUM"
+            default: return "⭐⭐⭐ HARD"
             }
         }()
-        let recipeTitle = info?.nameVi.uppercased() ?? "PIZZA THƠM NGON"
+        let recipeTitle = info?.nameEn.uppercased() ?? "DELICIOUS PIZZA"
         
         HStack(spacing: 8) {
             Text("👨‍🍳").font(.system(size: 18))
@@ -592,7 +592,7 @@ public struct KitchenView: View {
             Color.black.opacity(0.6).ignoresSafeArea()
             
             VStack(spacing: 16) {
-                Text("PIZZA HOÀN THÀNH!")
+                Text("PIZZA COMPLETED!")
                     .font(.system(size: 20, weight: .heavy, design: .rounded))
                     .foregroundColor(.warmTomatoRed)
                 
@@ -620,7 +620,7 @@ public struct KitchenView: View {
                         let recipe = state.currentRecipe ?? RecipeRepository.shared.getAllRecipes().first!
                         viewModel.initSession(recipe: recipe, mode: state.gameMode)
                     }) {
-                        Text("NẤU LẠI")
+                        Text("COOK AGAIN")
                             .font(.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, minHeight: 46)
@@ -629,7 +629,7 @@ public struct KitchenView: View {
                     }
                     
                     Button(action: onHomeClicked) {
-                        Text("MENU MÓN")
+                        Text("RECIPE MENU")
                             .font(.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, minHeight: 46)
