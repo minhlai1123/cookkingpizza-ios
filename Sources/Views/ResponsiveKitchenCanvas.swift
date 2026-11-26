@@ -19,18 +19,9 @@ public struct ResponsiveKitchenCanvas<Content: View>: View {
             let screenHeight = geometry.size.height
             let currentRatio = screenHeight > 0 ? screenWidth / screenHeight : Constants.targetAspectRatio
             
-            let canvasWidth: CGFloat
-            let canvasHeight: CGFloat
-            
-            if currentRatio > Constants.targetAspectRatio {
-                // Ultrawide screen (e.g. 19.5:9): Fit by height
-                canvasHeight = screenHeight
-                canvasWidth = screenHeight * Constants.targetAspectRatio
-            } else {
-                // Squarer screen (e.g. 4:3 iPad): Fit by width
-                canvasWidth = screenWidth
-                canvasHeight = screenWidth / Constants.targetAspectRatio
-            }
+            let isUltrawide = currentRatio > Constants.targetAspectRatio
+            let canvasWidth: CGFloat = isUltrawide ? screenHeight * Constants.targetAspectRatio : screenWidth
+            let canvasHeight: CGFloat = isUltrawide ? screenHeight : (Constants.targetAspectRatio > 0 ? screenWidth / Constants.targetAspectRatio : screenHeight)
             
             ZStack {
                 ambientBackgroundColor

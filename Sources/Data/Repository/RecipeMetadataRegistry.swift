@@ -87,12 +87,12 @@ public struct RecipeMetadataRegistry {
     
     public static func getInfo(for recipeId: String) -> RecipeLocalizedInfo {
         return registry[recipeId] ?? RecipeLocalizedInfo(
-            recipeId = recipeId,
-            nameEn = "Delicious Pizza",
-            difficultyTier = 1,
+            recipeId: recipeId,
+            nameEn: "Delicious Pizza",
+            difficultyTier: 1,
             difficultyLabel: "⭐ EASY",
             badgeColor: Color(hex: 0x4CAF50),
-            descriptionEn = "A gourmet master pizza made by a talented little chef!"
+            descriptionEn: "A gourmet master pizza made by a talented little chef!"
         )
     }
 }
