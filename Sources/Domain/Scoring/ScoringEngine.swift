@@ -76,19 +76,19 @@ public final class ScoringEngine {
         }
 
         return ScoreResult(
-            stars = stars,
-            feedbackMessage = feedback,
-            manualCompletionRate = manualRate,
-            sauceCoverage = sauceCoverage,
-            toppingsCount = toppingsCount,
-            isOvenPassed = isOvenPassed
+            stars: stars,
+            feedbackMessage: feedback,
+            manualCompletionRate: manualRate,
+            sauceCoverage: sauceCoverage,
+            toppingsCount: toppingsCount,
+            isOvenPassed: isOvenPassed
         )
     }
 
     public func calculateCreativeScore(session: CreativeCookingSession) -> ScoreResult {
         return ScoreResult(
-            stars = 3,
-            feedbackMessage = "Incredible Creation! You are a brilliant pizza artist!",
+            stars: 3,
+            feedbackMessage: "Incredible Creation! You are a brilliant pizza artist!",
             manualCompletionRate: 1.0,
             sauceCoverage: 1.0,
             toppingsCount: session.placedToppings.count,

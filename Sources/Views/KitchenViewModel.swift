@@ -107,10 +107,10 @@ public class KitchenViewModel: ObservableObject {
         if ingredient.category == "SAUCE" {
             uiState.sauceCoverage = 1.0
             stateMachine.activeCookingSession?.recordSauceCoverage(1.0)
-            _ = stateMachine.activeCreativeSession?.selectSauce(ingredientId: ingredientId)
+            _ = stateMachine.activeCreativeSession?.selectSauce(ingredientId)
         } else if ingredient.category == "CHEESE" {
             uiState.cheeseGrated = 1.0
-            _ = stateMachine.activeCreativeSession?.selectCheese(ingredientId: ingredientId)
+            _ = stateMachine.activeCreativeSession?.selectCheese(ingredientId)
         } else if ingredient.category.hasPrefix("TOPPING") {
             let angle = Double.random(in: 0.0...(2.0 * .pi))
             let r = Float.random(in: 0.1...0.75)
@@ -242,8 +242,8 @@ public class KitchenViewModel: ObservableObject {
         guard let ingredient = IngredientRepository.shared.getIngredientById(ingredientId) else { return }
         if uiState.placedToppings.count < 30 {
             uiState.placedToppings.append(PlacedTopping(ingredientId: ingredientId, positionX: normX, positionY: normY))
-            _ = stateMachine.activeCookingSession?.addTopping(ingredientId: ingredientId, positionX: normX, positionY: normY)
-            _ = stateMachine.activeCreativeSession?.addTopping(ingredientId: ingredientId, positionX: normX, positionY: normY)
+            _ = stateMachine.activeCookingSession?.addTopping(ingredientId: ingredientId, x: normX, y: normY)
+            _ = stateMachine.activeCreativeSession?.addTopping(ingredientId: ingredientId, x: normX, y: normY)
             SoundEffects.shared.playPop()
         }
         uiState.selectedIngredientId = ingredientId
